@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAJRA</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body class="execute-body">
+    <div class="navbar-custom">
+        <div class="navbar-content execute-navbar-content">
+            <div class="logo-custom" id="vajra-logo">VAJRA</div>
+            <div class="navbar-links execute-navbar-links">
+                <a href="javascript:void(0);" id="menu-link">Menu</a>
+            </div>
+        </div>
+    </div>
+    <div class="custom-div">
+        <h1 class="execute-header">
+            <span class="part-one">Result</span>
+        </h1>
+        <p class="execute-paragraph">Your model training is in progress. VAJRA is currently leveraging the power of
+            distributed computing to process your deep learning model across multiple Intel DE-10 Standard boards,
+            managed by a master Raspberry Pi. This ensures efficient and accurate computation. Please wait while we
+            complete the training and generate your results. Real-time updates will be displayed here once the process
+            is complete. Thank you for your patience.</p>
+
+        <h3 class="execute-header-small">Activations</h3>
+        <div id="result">Waiting for results...</div>
+
+    </div>
+
+    <!-- Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay">
+        <div class="navbar-custom">
+            <div class="navbar-content">
+                <div class="logo-custom" id="vajra-logo2">VAJRA</div>
+                <div class="navbar-links">
+                    <a href="javascript:void(0);" id="close-link">close</a>
+                </div>
+            </div>
+        </div>
+        <div class="menu-content">
+            <ul class="menu-links">
+                <li>
+                    <span class="menu-number">01</span>
+                    <a href="#">About<span class="arrow-icon"><svg width="90px" height="90px" viewBox="0 0 512 512"
+                                xmlns="http://www.w3.org/2000/svg" fill="#282829" transform="rotate(-45)">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>ionicons-v5-a</title>
+                                    <polyline points="112 268 256 412 400 268"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </polyline>
+                                    <line x1="256" y1="392" x2="256" y2="100"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </line>
+                                </g>
+                            </svg>
+                        </span></a>
+                </li>
+                <li>
+                    <span class="menu-number">02</span>
+                    <a href="#">Approach<span class="arrow-icon"><svg width="90px" height="90px" viewBox="0 0 512 512"
+                                xmlns="http://www.w3.org/2000/svg" fill="#282829" transform="rotate(-45)">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>ionicons-v5-a</title>
+                                    <polyline points="112 268 256 412 400 268"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </polyline>
+                                    <line x1="256" y1="392" x2="256" y2="100"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </line>
+                                </g>
+                            </svg>
+                        </span></a>
+                </li>
+                <li>
+                    <span class="menu-number">03</span>
+                    <a href="/execute">Execute<span class="arrow-icon"><svg width="90px" height="90px"
+                                viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#282829"
+                                transform="rotate(-45)">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>ionicons-v5-a</title>
+                                    <polyline points="112 268 256 412 400 268"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </polyline>
+                                    <line x1="256" y1="392" x2="256" y2="100"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </line>
+                                </g>
+                            </svg>
+                        </span></a>
+                </li>
+                <li>
+                    <span class="menu-number">04</span>
+                    <a href="#">Contact<span class="arrow-icon"><svg width="90px" height="90px" viewBox="0 0 512 512"
+                                xmlns="http://www.w3.org/2000/svg" fill="#282829" transform="rotate(-45)">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>ionicons-v5-a</title>
+                                    <polyline points="112 268 256 412 400 268"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </polyline>
+                                    <line x1="256" y1="392" x2="256" y2="100"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </line>
+                                </g>
+                            </svg>
+                        </span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuLink = document.getElementById("menu-link");
+            const closeLink = document.getElementById("close-link");
+            const menuOverlay = document.getElementById("menu-overlay");
+
+            menuLink.addEventListener("click", function () {
+                menuOverlay.classList.add("show");
+            });
+
+            closeLink.addEventListener("click", function () {
+                menuOverlay.classList.remove("show");
+            });
+        });
+        document.getElementById('vajra-logo').addEventListener('click', function () {
+            window.location.href = 'new';
+        });
+        document.getElementById('vajra-logo2').addEventListener('click', function () {
+            window.location.href = 'new';
+        });
+
+
+
+        function checkForResult() {
+            fetch('/check-result')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.resultReady) {
+                        // Result is ready, display it
+                        displayResult(data.result);
+                    } else {
+                        // Result not ready, check again after some time
+                        setTimeout(checkForResult, 5000); // Check again in 5 seconds
+                    }
+                })
+                .catch(error => {
+                    // Handle error
+                    console.error('Error checking for result', error);
+                });
+        }
+
+        function displayResult(result) {
+            // Code to display the result on the webpage
+            const resultContainer = document.getElementById('result');
+            resultContainer.innerHTML = ''; // Clear any previous results
+            result.forEach(value => {
+                const resultElement = document.createElement('div');
+                resultElement.textContent = value;
+                resultContainer.appendChild(resultElement);
+            });
+        }
+
+        // Start checking for result when the page is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            checkForResult();
+        });
+
+    </script>
+</body>
+
+</html>

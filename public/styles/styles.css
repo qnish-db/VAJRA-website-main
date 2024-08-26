@@ -1,0 +1,942 @@
+@font-face {
+  font-family: 'CukierBold';
+  src: url('./fonts/cukier-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.login-body {
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Eina', sans-serif; */
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Eina';
+  src: url('Eina01-Regular.ttf') format('truetype'),
+    url('Eina01-Bold.ttf') format('truetype'),
+    url('Eina01-Light.ttf') format('truetype');
+  font-weight: 400;
+  /* or 400*/
+  font-style: normal;
+}
+
+
+.title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.left-part {
+  background: #159957;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #155799, #159957);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #155799, #159957);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+}
+
+.content-wrapper {
+  width: 70%;
+  /* Occupy 70% width of the left part */
+  text-align: left;
+  /* Align text to the left */
+}
+
+.left-part h1 {
+  font-size: 6rem;
+  /* Increased font size */
+  margin-bottom: 5px;
+  /* Add minimal space below the header */
+}
+
+.highlight-text {
+  font-size: 1.3rem;
+  /* Decreased font size */
+  margin-top: 0;
+  /* Remove space above */
+  margin-bottom: 40px;
+  /* Increased space below the highlight text */
+}
+
+.description-text {
+  font-size: 1.3rem;
+  /* Keep font size same */
+  margin-top: 70px;
+  /* Additional space to move the text further down */
+}
+
+.footer {
+  width: 70%;
+  /* Match the width of content-wrapper */
+  text-align: left;
+  /* Align text to the left */
+  font-size: 1rem;
+  /* Very small font size */
+  color: #aaaaaa;
+  /* Dull color */
+  margin-top: auto;
+  /* Push footer to the bottom */
+}
+
+.right-part {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: relative;
+  /* Added for logo positioning */
+}
+
+.logo-container {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 80px;
+  /* Adjust size as needed */
+}
+
+.logo-left {
+  align-self: flex-end;
+  /* Move the first image to the bottom */
+}
+
+.logo-right {
+  height: 100px;
+  /* Adjust size as needed */
+}
+
+.container {
+  width: 67%;
+  padding: 40px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.saleskeep-header {
+  font-size: 2rem;
+  color: black;
+  position: absolute;
+  top: -100px;
+}
+
+h2 {
+  font-size: 2rem;
+  /* Adjust font size */
+  color: black;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.grey-text {
+  color: grey;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+a.black-text {
+  color: black;
+  text-decoration: underline;
+}
+
+a.black-text:hover {
+  text-decoration: underline;
+}
+
+#login-form {
+  width: 100%;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding-left: 14px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid black;
+  font-size: 1rem;
+}
+
+input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #333;
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Main Page */
+/* Background Image Container */
+/* Background Image Container */
+.bg-image-container {
+  width: 100%;
+  height: 100vh;
+  /* Full viewport height */
+  position: relative;
+  overflow: hidden;
+  top: 0;
+  /* Ensure it starts at the top */
+  z-index: -1;
+  margin-top: -60px;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the image covers the entire div */
+}
+
+.main-header {
+  width: 91%;
+  color: #f9f8f2;
+  font-size: 417px;
+  font-weight: bold;
+  display: flex;
+  padding: 0;
+  line-height: 1;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin: 0px auto;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  /* Position it absolutely */
+  bottom: -22px;
+  /* Move to the bottom of the screen */
+  left: 50%;
+  /* Move to the center of the screen horizontally */
+  transform: translateX(-50%);
+  /* Adjust position to center on the x-axis */
+  letter-spacing: -10px;
+  /* Adjust letter spacing */
+  -webkit-text-stroke: 10px #f9f8f2;
+  /* Add stroke effect */
+  margin-left: 10px;
+}
+
+.def-header {
+  font-weight: bold;
+  font-size: 103px;
+  margin-top: 160px;
+  letter-spacing: -5.8px;
+  line-height: 0.9;
+  margin-bottom: 50px;
+}
+
+/* Content Container */
+.content-container {
+  width: 100%;
+  /* Match the width of navbar-content */
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  /* Center the container and reduce the top margin */
+  font-size: 27px;
+  color: #282829;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  font-size: 38px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-description {
+  margin-bottom: 0;
+}
+
+.line {
+  color: #282829;
+  width: 100%;
+  /* Match the width of navbar-content */
+  height: 4px;
+  /* Make it bolder */
+  margin-top: 60px;
+  margin-bottom: 55px;
+  background-color: #282829;
+}
+
+.content-header {
+  font-weight: bold;
+  font-size: 100px;
+  letter-spacing: -5.5px;
+  margin-top: 0;
+  padding-top: 0;
+  margin-left: -7px;
+  margin-bottom: 0;
+}
+
+.features {
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+}
+
+.feature-description {
+  margin-bottom: 40px;
+  margin-top: -2px;
+  margin-left: 92px;
+}
+
+.feature-arrow-icon {
+  display: inline-block;
+  vertical-align: bottom;
+  /* Align the arrow icon with the bottom of the text */
+  margin-left: 10px;
+  /* Add some space between the text and the icon */
+  position: relative;
+  top: 10px;
+  /* Adjust this value to move the arrow down */
+}
+
+.workflow {
+  width: 60%;
+  margin-left: 210px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.workflow-header {
+  font-weight: bold;
+  font-size: 100px;
+  letter-spacing: -5.5px;
+  margin-top: 0;
+  padding-top: 0;
+  margin-left: -7px;
+  margin-bottom: 0;
+  line-height: 0.8;
+}
+
+.workflow-description {
+  font-size: 25px;
+  margin-top: 12px;
+}
+
+.workflow-arrow-icon {
+  display: inline-block;
+  vertical-align: bottom;
+  /* Align the arrow icon with the bottom of the text */
+  margin-left: 250px;
+  /* Add some space between the text and the icon */
+  position: relative;
+  /* Adjust this value to move the arrow down */
+  margin-top: -15px;
+}
+
+.contact {
+  width: 97.5%;
+  background-color: #282829;
+  border-radius: 10px;
+  color: #f9f8f2;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  margin-bottom: 15px;
+}
+
+.contact-vajra {
+  margin-bottom: 0;
+  padding-top: -30px;
+  width: 97.5%;
+  margin-right: auto;
+  margin-left: 27px;
+  color: #f9f8f2;
+  font-size: 300px;
+  font-weight: bold;
+  letter-spacing: -8px;
+  /* Adjust letter spacing */
+  -webkit-text-stroke: 7px #f9f8f2;
+  /* Add stroke effect */
+  position: relative;
+    top: -36px;
+  margin-top: -20px;
+  padding-bottom: -20px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: space-between;
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: normal;
+  margin-bottom: 7px;
+  padding-bottom: 17px;
+  margin-top: -20px;
+}
+
+.contact-links p {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.cl1 {
+  width: 27.7%;
+  font-size: 20px;
+}
+.cl2 {
+  width: 27.7%;
+  font-size: 20px;
+}
+.cl3 {
+  width: 12%;
+  font-size: 20px;
+}
+.cl4 {
+  width: 7%;
+  font-size: 20px;
+}
+.cl5 {
+  width: 7%;
+  font-size: 20px;
+}
+
+.navbar-custom {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  /* Set a generic navbar height */
+  background-color: transparent;
+  /* Set the background color */
+  z-index: 1000;
+  /* Ensure it stays on top of other content */
+  display: flex;
+  justify-content: center;
+  /* Center the content horizontally */
+}
+
+/* Container div within the navbar */
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* Align the content to the bottom */
+  width: 97.5%;
+  /* Set the width */
+}
+
+/* Styling for the logo */
+.logo-custom {
+  font-size: 26px;
+  font-weight: bold;
+  color: #f9f8f2;
+  /* Set the text color */
+}
+
+/* Styling for the navbar links */
+.navbar-links a {
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: bold;
+  color: #f9f8f2;
+  /* Set the text color */
+  padding: 8px;
+}
+
+/* Set the main body background color */
+.main-body {
+  background-color: #f9f8f2;
+  /* Set the background color */
+  margin: 0;
+  /* Ensure no default margin */
+  padding: 0;
+  /* Ensure no default padding */
+  /* font-family: 'Eina', sans-serif; */
+  /* Set the font family */
+  font-family: 'CukierBold', sans-serif;
+}
+
+/* Menu Overlay Styling */
+.menu-overlay {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f9f8f2;
+  color: #282829;
+  z-index: 1001;
+  transition: top 0.5s ease-in-out;
+}
+
+.menu-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* Align items to the top */
+  height: 70%;
+  /* Adjust height to control vertical alignment */
+  width: 80%;
+  padding-left: 10%;
+  /* Add more padding to move the content slightly to the left */
+  padding-top: 1%;
+  /* Adjust padding to move the content higher */
+  text-align: left;
+  /* Align text to the left */
+  font-size: 24px;
+}
+
+/* Show the menu overlay */
+.menu-overlay.show {
+  top: 0;
+}
+
+/* Styling for the overlay navbar elements */
+.menu-overlay .logo-custom {
+  font-size: 26px;
+  font-weight: bold;
+  color: #282829;
+}
+
+.menu-overlay .navbar-links a {
+  text-decoration: none;
+  font-size: 26px;
+  color: #282829;
+  padding: 8px;
+}
+
+/* Menu links styling */
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-links li {
+  margin: -10px 0;
+  /* Decrease the margin to reduce space between links */
+  display: flex;
+  align-items: flex-start;
+  /* Align items to the top */
+  position: relative;
+  /* Add relative positioning for arrow */
+}
+
+.menu-links a {
+  font-size: 140px;
+  /* Maintain increased font size */
+  color: #282829;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: -5px;
+  /* Decrease letter spacing */
+}
+
+.menu-number {
+  font-size: 35px;
+  /* Decrease font size for numbers */
+  font-weight: bold;
+  /* Make the numbers bold */
+  color: #282829;
+  margin-right: 80px;
+  /* Increase space between number and link */
+  line-height: 1;
+  /* Align the number with the text baseline */
+  letter-spacing: -2px;
+  padding-top: 15px;
+  /* Add space between number and link */
+  padding-top: 65px;
+}
+
+.arrow-icon {
+  display: inline-block;
+  vertical-align: bottom;
+  /* Align the arrow icon with the bottom of the text */
+  margin-left: 10px;
+  /* Add some space between the text and the icon */
+  position: relative;
+  top: 18px;
+  /* Adjust this value to move the arrow down */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Execute Page */
+.execute-body {
+  font-family: 'CukierBold', sans-serif;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f9f8f2;
+}
+
+/* Ensure specific styles for the execute navbar */
+.execute-navbar-content .logo-custom {
+  color: #282829;
+}
+
+.execute-navbar-content .navbar-links a {
+  color: #282829;
+}
+
+/* Custom div styles */
+.custom-div {
+  width: 97.5%;
+  background-color: #282829;
+  margin: 0 auto;
+  margin-top: calc(60px + 150px);
+  margin-bottom: 18.5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Header styles inside custom div */
+.execute-header {
+  font-size: 190px;
+  font-weight: bold;
+  color: #f9f8f2;
+  margin-top: 0.6%;
+  margin-bottom: 0;
+  padding: 0;
+  letter-spacing: -5px;
+}
+
+.execute-header .part-one,
+.execute-header .part-two {
+  display: block;
+  line-height: 0.8;
+}
+
+.part-two {
+  margin-top: 10px;
+  letter-spacing: -7px;
+}
+
+/* Paragraph styles inside custom div */
+.execute-paragraph {
+  font-size: 27px;
+  color: #f9f8f2;
+  margin-top: 40px;
+  line-height: 1.5;
+  max-width: 90%;
+  padding-left: 11px;
+}
+
+/* New paragraph style without margin-top */
+.execute-paragraph-no-margin {
+  font-size: 27px;
+  color: #f9f8f2;
+  line-height: 1.5;
+  max-width: 90%;
+  padding-left: 11px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Horizontal line styles */
+.custom-hr {
+  border: 1px solid #f9f8f2;
+  width: calc(100% - 34px);
+  margin-top: 50px;
+  margin-left: 14px;
+}
+
+/* Sub-header styles */
+.sub-header {
+  font-size: 80px;
+  font-weight: bold;
+  color: #f9f8f2;
+  margin-top: 66px;
+  padding-left: 9px;
+  margin-bottom: 5.5px;
+}
+
+/* New header style */
+.execute-header-small {
+  font-size: 70px;
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 2px #f9f8f2;
+  margin-top: 70px;
+  padding-left: 9px;
+  margin-bottom: 5.5px;
+}
+
+/* New paragraph style for text under the "Number of Layers" header */
+.execute-paragraph-under-small-header {
+  font-size: 27px;
+  color: #f9f8f2;
+  line-height: 1.5;
+  max-width: 90%;
+  padding-left: 11px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Style for the radio buttons */
+.execute-radio-group {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.execute-radio-group label {
+  font-size: 70px;
+  color: #f9f8f2;
+  margin-right: 5px;
+  margin-left: 8px;
+}
+
+.execute-radio-group input[type="radio"] {
+  width: 25px;
+  height: 25px;
+  margin-right: 70px;
+  accent-color: #f9f8f2;
+}
+
+/* Styles for the dynamic input fields */
+.dynamic-input-group {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  /* Space between each label and input pair */
+  row-gap: 10px;
+  /* Reduced space between rows */
+}
+
+.dynamic-input-group label {
+  font-size: 45px;
+  color: transparent;
+  -webkit-text-stroke: 1px #f9f8f2;
+  margin-bottom: 5px;
+  margin-left: 11px;
+}
+
+.dynamic-input-group .dynamic-input {
+  font-size: 37px;
+  color: #f9f8f2;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #f9f8f2;
+  width: 77px;
+  margin-left: 10px;
+}
+
+/* Animation for dynamic input fields */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dynamic-input-wrapper {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Styles for the batch size range input */
+.batch-size-group {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  padding-left: 12px;
+}
+
+.batch-size-group input[type="range"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 600px;
+  /* Increased width */
+  height: 25px;
+  /* Increased height */
+  background: #f9f8f2;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.batch-size-group input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 35px;
+  /* Increased thumb size */
+  height: 35px;
+  /* Increased thumb size */
+  background: #282829;
+  cursor: pointer;
+}
+
+.batch-size-group input[type="range"]::-moz-range-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 35px;
+  /* Increased thumb size */
+  height: 35px;
+  /* Increased thumb size */
+  background: #282829;
+  cursor: pointer;
+}
+
+.batch-size-group output {
+  font-size: 50px;
+  /* Increased font size */
+  color: #f9f8f2;
+  margin-left: 25px;
+  /* Increased margin */
+}
+
+/* Styles for the file upload input */
+.file-upload-group {
+  margin-top: 15px;
+  padding-left: 12px;
+}
+
+.file-upload-group input[type="file"] {
+  font-size: 27px;
+  color: #f9f8f2;
+  background-color: #282829;
+  border: 1px solid #f9f8f2;
+  border-radius: 5px;
+  width: calc(100% - 24px);
+  /* Ensure full width minus padding */
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Adjust the appearance of the file upload button */
+.file-upload-group input[type="file"]::file-selector-button {
+  background-color: #f9f8f2;
+  color: #282829;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-family: 'CukierBold', sans-serif;
+  font-weight: bold;
+  border-radius: 5px;
+  /* Apply border-radius to all corners */
+}
+
+/* Additional styling to improve file input field appearance */
+.file-upload-group input[type="file"]::file-selector-button:hover {
+  background-color: #d3d3d3;
+}
+
+/* Styles for the submit button */
+.submit-button-group {
+  margin-top: 70px;
+  padding-left: 12px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.submit-button {
+  font-size: 27px;
+  color: #282829;
+  background-color: #f9f8f2;
+  border: 1px solid #f9f8f2;
+  border-radius: 5px;
+  width: 200px;
+  /* Adjust width as needed */
+  padding: 10px;
+  cursor: pointer;
+  font-family: 'CukierBold', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  /* Center the text */
+  box-sizing: border-box;
+  /* Include padding and border in width and height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button:hover {
+  background-color: #d3d3d3;
+}
+
+/* Adjust the spacing between text and arrow */
+.submit-button::after {
+  content: " ➔";
+  margin-left: 5px;
+  /* Adjust margin to decrease space between text and arrow */
+}
+
+.error-message {
+  font-size: 30px;
+  color: red;
+  margin-left: 10px;
+  font-style: normal;
+  font-weight: 200;
+}
+
+.error-icon {
+  margin-right: 3px;
+}
+
+#result {
+  margin-top: 50px;
+  margin-left: 6px;
+  color: #f9f8f2;
+  font-size: 50px;
+}

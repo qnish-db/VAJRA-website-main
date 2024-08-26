@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAJRA</title>
+    <link rel="stylesheet" href="./styles/styles.css"> <!-- Link to the external CSS file -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const radioButtons = document.querySelectorAll('input[name="layers"]');
+            const dynamicInputGroup = document.querySelector('.dynamic-input-group');
+            const batchSizeInput = document.getElementById('batch-size');
+            const batchSizeOutput = document.getElementById('batch-size-output');
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    const selectedValue = parseInt(this.value);
+                    dynamicInputGroup.innerHTML = ''; // Clear previous inputs
+
+                    for (let i = 1; i <= selectedValue; i++) {
+                        const label = document.createElement('label');
+                        label.textContent = `Layer ${i}`;
+                        label.classList.add('dynamic-input-group-label');
+
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.className = 'dynamic-input';
+                        input.name = `layer_${i}`;  // Add this line
+                        input.placeholder = '';
+
+                        const inputWrapper = document.createElement('div');
+                        inputWrapper.className = 'dynamic-input-wrapper';
+                        inputWrapper.appendChild(label);
+                        inputWrapper.appendChild(input);
+
+                        dynamicInputGroup.appendChild(inputWrapper);
+                    }
+                });
+            });
+
+            batchSizeInput.addEventListener('input', function () {
+                batchSizeOutput.value = this.value;
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuLink = document.getElementById("menu-link");
+            const closeLink = document.getElementById("close-link");
+            const menuOverlay = document.getElementById("menu-overlay");
+
+            menuLink.addEventListener("click", function () {
+                menuOverlay.classList.add("show");
+            });
+
+            closeLink.addEventListener("click", function () {
+                menuOverlay.classList.remove("show");
+            });
+            document.getElementById('vajra-logo').addEventListener('click', function () {
+                window.location.href = 'new';
+            });
+            document.getElementById('vajra-logo2').addEventListener('click', function () {
+                window.location.href = 'new';
+            });
+        });
+    </script>
+
+</head>
+
+<body class="execute-body">
+    <div class="navbar-custom">
+        <div class="navbar-content execute-navbar-content">
+            <div class="logo-custom" id="vajra-logo">VAJRA</div>
+            <div class="navbar-links execute-navbar-links">
+                <a href="javascript:void(0);" id="menu-link">Menu</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- New div with header and paragraph -->
+    <div class="custom-div">
+        <h1 class="execute-header">
+            <span class="part-one">Execute &</span>
+            <span class="part-two">Deploy</span>
+        </h1>
+        <p class="execute-paragraph">
+            Use VAJRA to execute and deploy your deep learning models effortlessly. This section allows you to input
+            crucial parameters such as the number of layers and batch size, and upload your PyTorch model and Python
+            script. VAJRA orchestrates the training process across multiple Intel DE-10 Standard boards, managed by a
+            master Raspberry Pi, ensuring efficient and distributed computation. With just a few clicks, you can
+            configure your model, execute the training, and view real-time results.
+        </p>
+        <!-- Horizontal line -->
+        <hr class="custom-hr">
+        <!-- New header -->
+        <h2 class="sub-header">Model Configuration Inputs</h2>
+        <p class="execute-paragraph-no-margin">
+            Please provide the necessary parameters to set up and train your neural network. Your inputs will guide the
+            model initialization and training process, enabling you to customize the network according to your specific
+            needs. With these settings, you can fine-tune the architecture and optimize the performance of your neural
+            network.
+        </p>
+        <form action="/execute" method="post" enctype="multipart/form-data">
+            <h3 class="execute-header-small">Number of Layers</h3>
+            <p class="execute-paragraph-under-small-header">
+                Define the total number of layers in your neural network. This shapes the depth and complexity of your
+                model.
+            </p>
+            <div class="execute-radio-group">
+                <label for="layers-1">1</label>
+                <input type="radio" id="layers-1" name="layers" value="1">
+                <label for="layers-2">2</label>
+                <input type="radio" id="layers-2" name="layers" value="2">
+                <label for="layers-3">3</label>
+                <input type="radio" id="layers-3" name="layers" value="3">
+                <label for="layers-4">4</label>
+                <input type="radio" id="layers-4" name="layers" value="4">
+                <label for="layers-5">5</label>
+                <input type="radio" id="layers-5" name="layers" value="5">
+                <label for="layers-6">6</label>
+                <input type="radio" id="layers-6" name="layers" value="6">
+            </div>
+            <div class="dynamic-input-group"></div>
+
+            <h3 class="execute-header-small">Batch Size</h3>
+            <p class="execute-paragraph-under-small-header">
+                Enter the batch size for training. This value determines how many samples are processed in each
+                iteration, influencing the speed and stability of the training process.
+            </p>
+            <div class="batch-size-group">
+                <input type="range" id="batch-size" name="batch_size" min="0" max="999" step="50" value="0">
+                <output id="batch-size-output" for="batch-size">0</output>
+            </div>
+
+            <h3 class="execute-header-small">PyTorch Model File</h3>
+            <p class="execute-paragraph-under-small-header">
+                Upload your PyTorch model file. This file will be used to save and load the state of your model during
+                training.
+            </p>
+            <div class="file-upload-group">
+                <input type="file" id="model-file" name="model-file" accept=".pth">
+            </div>
+
+            <!-- New section for Python file upload -->
+            <h3 class="execute-header-small">Python File</h3>
+            <p class="execute-paragraph-under-small-header">
+                Upload your Python script that defines the neural network architecture. This will outline the structure
+                and operations of your model.
+            </p>
+            <div class="file-upload-group">
+                <input type="file" id="python-file" name="python-file" accept=".py">
+            </div>
+            <% if (errorMessage) { %>
+                <p class="error-message"><span class="error-icon">&#9888;</span><%= errorMessage %></p>
+            <% } %>
+              
+            <div class="submit-button-group">
+                <button type="submit" class="submit-button">Execute</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay">
+        <div class="navbar-custom">
+            <div class="navbar-content">
+                <div class="logo-custom" id="vajra-logo2">VAJRA</div>
+                <div class="navbar-links">
+                    <a href="javascript:void(0);" id="close-link">close</a>
+                </div>
+            </div>
+        </div>
+        <div class="menu-content">
+            <ul class="menu-links">
+                <li>
+                    <span class="menu-number">01</span>
+                    <a href="#">About<span class="arrow-icon"><svg width="90px" height="90px" viewBox="0 0 512 512"
+                                xmlns="http://www.w3.org/2000/svg" fill="#282829" transform="rotate(-45)">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>ionicons-v5-a</title>
+                                    <polyline points="112 268 256 412 400 268"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </polyline>
+                                    <line x1="256" y1="392" x2="256" y2="100"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </line>
+                                </g>
+                            </svg>
+                        </span></a>
+                </li>
+                <li>
+                    <span class="menu-number">02</span>
+                    <a href="#">Approach<span class="arrow-icon"><svg width="90px" height="90px" viewBox="0 0 512 512"
+                                xmlns="http://www.w3.org/2000/svg" fill="#282829" transform="rotate(-45)">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>ionicons-v5-a</title>
+                                    <polyline points="112 268 256 412 400 268"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </polyline>
+                                    <line x1="256" y1="392" x2="256" y2="100"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </line>
+                                </g>
+                            </svg>
+                        </span></a>
+                </li>
+                <li>
+                    <span class="menu-number">03</span>
+                    <a href="/execute">Execute<span class="arrow-icon"><svg width="90px" height="90px"
+                                viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#282829"
+                                transform="rotate(-45)">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>ionicons-v5-a</title>
+                                    <polyline points="112 268 256 412 400 268"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </polyline>
+                                    <line x1="256" y1="392" x2="256" y2="100"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </line>
+                                </g>
+                            </svg>
+                        </span></a>
+                </li>
+                <li>
+                    <span class="menu-number">04</span>
+                    <a href="#">Contact<span class="arrow-icon"><svg width="90px" height="90px" viewBox="0 0 512 512"
+                                xmlns="http://www.w3.org/2000/svg" fill="#282829" transform="rotate(-45)">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>ionicons-v5-a</title>
+                                    <polyline points="112 268 256 412 400 268"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </polyline>
+                                    <line x1="256" y1="392" x2="256" y2="100"
+                                        style="fill:none;stroke:#282829;stroke-linecap:square;stroke-miterlimit:10;stroke-width:80px">
+                                    </line>
+                                </g>
+                            </svg>
+                        </span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

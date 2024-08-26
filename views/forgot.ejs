@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAJRA</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body class="login-body">
+    <div class="main-container">
+        <div class="left-part">
+            <div class="content-wrapper">
+                <h1>VAJRA</h1>
+                <p class="highlight-text">
+                    <strong>V</strong>ersatile <strong>A</strong>I <strong>J</strong>unction for
+                    <strong>R</strong>eal-time edge <strong>A</strong>pplications
+                </p>
+                <p class="description-text">Run and simulate your machine learning workloads on our heterogeneous Intel
+                    DE-10 SoC FPGA edge platform.</p>
+            </div>
+            <div class="footer">
+                <p>&copy; 2024 CIE. All rights reserved.</p>
+            </div>
+        </div>
+        <div class="right-part">
+            <div class="logo-container">
+                <img src="https://coconet-conference.org/2023/sites/default/files/pes-logo.jpg" alt="Logo 1"
+                    class="logo logo-left">
+                <img src="https://media.licdn.com/dms/image/C4D22AQE2WL2spHY3wA/feedshare-shrink_800/0/1656328513951?e=2147483647&v=beta&t=Pnxn9kuu8EoacrgxOnW9LZUsc1jxp5-ZIpJsGINWZCE"
+                    alt="Logo 2" class="logo logo-right">
+            </div>
+
+            <div class="container">
+                <!-- <h1 class="saleskeep-header">VAJRA</h1> -->
+                <h2>Welcome Back!</h2>
+                <!-- <p class="grey-text">Don't have an account? <a href="/signin" class="black-text">Create a new account
+                        now</a>, it's FREE! Takes less than a minute.</p> -->
+                <!-- <p class="grey-text">Already have an account? <a href="/" class="black-text">Login Here</a></p> -->
+                <form id="login-form" action="/forgot" method="post">
+                    <input type="text" id="pesu_id" name="pesu_id" placeholder="pesu id">
+                    <div class="login">
+                        <input type="password" id="new_password" name="new_password" placeholder="new password">
+                        <input type="password" id="confirm_password" name="confirm_password"
+                            placeholder="confirm password">
+                    </div>
+                    <input type="submit" value="Confirm">
+                </form>
+                <% if (locals.error) { %>
+                    <p class="error">
+                        <%= error %>
+                    </p>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

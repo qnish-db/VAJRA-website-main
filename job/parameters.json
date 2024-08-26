@@ -1,0 +1,9 @@
+{
+  "id": "job93",
+  "layers": 2,
+  "batch_size": 150,
+  "layer_dimensions": [
+    2,
+    2
+  ]
+}
